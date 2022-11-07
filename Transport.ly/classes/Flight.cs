@@ -14,8 +14,21 @@
             try
             {
                 List<Flight> flights = LoadFlightData();
+                DisplayResults(flights);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
-                foreach (Flight flight in flights)
+        private void DisplayResults(List<Flight> FlightCollection)
+        {
+            try
+            {
+                Console.WriteLine("\nDisplaying : Flight Schedule (Story #1) *******");
+
+                foreach (Flight flight in FlightCollection)
                 {
                     Console.WriteLine($"Flight: {flight.FlightID}, departure: {flight.DepartureCity}, arrival: {flight.ArivalCity}, day: {flight.DayOfFlight}");
                 }
